@@ -14,8 +14,8 @@ export default function CaseStudy({ onNavigate }: CaseStudyProps) {
   const heroImageUrl = useImageUrl(caseStudy.hero.image);
 
   return (
-    <article className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-white">
-      <div className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-600 via-blue-500 to-blue-600">
+    <article className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-white pt-20">
+      <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-600 via-blue-500 to-blue-600">
         <div className="absolute inset-0">
           <img
             src={heroImageUrl}

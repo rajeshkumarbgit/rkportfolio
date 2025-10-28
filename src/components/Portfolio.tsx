@@ -4,14 +4,14 @@
  */
 
 import { useState, useMemo } from 'react';
-import { ExternalLink, Award, Search, Sparkles } from 'lucide-react';
-import { useAllProjects, useHasCaseStudy } from '../hooks/useProjects';
+import { Award, Search, Sparkles } from 'lucide-react';
+import { useAllProjects } from '../hooks/useProjects';
 import { usePortfolioContent } from '../hooks/useContent';
 import { useImageUrl } from '../hooks/useImages';
 import { projectService } from '../services/projectService';
 
 interface PortfolioProps {
-  onNavigate: (page: string) => void;
+  onNavigate: (page: string, slug?: string) => void;
 }
 
 export default function Portfolio({ onNavigate }: PortfolioProps) {
@@ -110,12 +110,12 @@ export default function Portfolio({ onNavigate }: PortfolioProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => {
             const coverUrl = useImageUrl(project.cover);
-            const hasCaseStudy = useHasCaseStudy(project.slug);
 
             return (
               <article
                 key={project.id}
-                className="group relative bg-white rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-700 border border-gray-200 hover:border-gray-300"
+                onClick={() => onNavigate('portfolio-detail', project.slug)}
+                className="group relative bg-white rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-700 border border-gray-200 hover:border-gray-300 cursor-pointer"
                 style={{
                   animation: `fadeInUp 0.6s ease-out ${index * 0.08}s both`
                 }}
@@ -164,15 +164,9 @@ export default function Portfolio({ onNavigate }: PortfolioProps) {
                     <span>{project.timeline}</span>
                   </div>
 
-                  {hasCaseStudy && (
-                    <button
-                      onClick={() => onNavigate('case-study')}
-                      className="w-full mt-5 inline-flex items-center justify-center px-6 py-4 bg-gray-900 text-white text-sm font-semibold rounded-2xl hover:bg-gray-800 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
-                    >
-                      View Case Study
-                      <ExternalLink className="ml-2 w-4 h-4" />
-                    </button>
-                  )}
+                  <div className="mt-5 text-sm font-semibold text-gray-500 group-hover:text-gray-900 transition-colors">
+                    Click to view details →
+                  </div>
                 </div>
               </article>
             );
