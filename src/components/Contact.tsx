@@ -6,7 +6,7 @@
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Calendar, Download, Send, CheckCircle } from 'lucide-react';
 import { useContactContent } from '../hooks/useContent';
-import { useContactInfo, useSocialLinks } from '../hooks/useConfig';
+import { useContactInfo } from '../hooks/useConfig';
 
 interface ContactProps {
   onNavigate: (page: string) => void;
@@ -15,7 +15,6 @@ interface ContactProps {
 export default function Contact({ onNavigate }: ContactProps) {
   const content = useContactContent();
   const contactInfo = useContactInfo();
-  const socialLinks = useSocialLinks();
   const [formData, setFormData] = useState({
     name: '',
     email: '',

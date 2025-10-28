@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import { usePageMetadata } from './hooks/useContent';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import FeaturedWork from './components/FeaturedWork';
 import Portfolio from './components/Portfolio';
 import CaseStudy from './components/CaseStudy';
 import About from './components/About';
@@ -31,7 +32,12 @@ function App() {
       <Header currentPage={currentPage} onNavigate={setCurrentPage} />
 
       <main>
-        {currentPage === 'home' && <Hero onNavigate={setCurrentPage} />}
+        {currentPage === 'home' && (
+          <>
+            <Hero onNavigate={setCurrentPage} />
+            <FeaturedWork />
+          </>
+        )}
         {currentPage === 'about' && <About />}
         {currentPage === 'portfolio' && <Portfolio onNavigate={setCurrentPage} />}
         {currentPage === 'case-study' && <CaseStudy onNavigate={setCurrentPage} />}

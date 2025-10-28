@@ -199,7 +199,14 @@ export interface PortfolioContent {
   technologyLabel: string;
   searchPlaceholder: string;
   showingLabel: string;
+  ofLabel: string;
+  projectsLabel: string;
   clearFiltersLabel: string;
+  nothingFoundTitle: string;
+  nothingFoundAction: string;
+  viewCaseStudyLabel: string;
+  viewPrototypeLabel: string;
+  featuredBadge: string;
 }
 
 export interface ContactContent {
@@ -214,6 +221,12 @@ export interface ContactContent {
   availabilityMessage: string;
   ctaTitle: string;
   ctaDescription: string;
+  bookCallLabel: string;
+  downloadResumeLabel: string;
+  viewPortfolioLabel: string;
+  bookCallSubtext: string;
+  resumeSubtext: string;
+  portfolioSubtext: string;
 }
 
 export interface Labels {

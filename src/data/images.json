@@ -14,96 +14,96 @@
     },
     {
       "id": "project-cover-1",
-      "url": "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "alt": "Enterprise dashboard interface design",
+      "url": "https://images.pexels.com/photos/7599735/pexels-photo-7599735.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "alt": "Enterprise dashboard interface design with analytics",
       "attribution": {
-        "author": "ThisIsEngineering",
+        "author": "MART PRODUCTION",
         "source": "pexels",
-        "url": "https://www.pexels.com/photo/3861969/"
+        "url": "https://www.pexels.com/photo/7599735/"
       },
       "category": "project-cover",
       "tags": ["enterprise", "dashboard", "ui-design"]
     },
     {
       "id": "project-cover-2",
-      "url": "https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "alt": "Mobile banking application interface",
+      "url": "https://images.pexels.com/photos/4226140/pexels-photo-4226140.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "alt": "Mobile banking application interface on smartphone",
       "attribution": {
-        "author": "Tima Miroshnichenko",
+        "author": "cottonbro studio",
         "source": "pexels",
-        "url": "https://www.pexels.com/photo/6801648/"
+        "url": "https://www.pexels.com/photo/4226140/"
       },
       "category": "project-cover",
       "tags": ["mobile", "fintech", "app-design"]
     },
     {
       "id": "project-cover-3",
-      "url": "https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "alt": "Healthcare patient portal design",
+      "url": "https://images.pexels.com/photos/7579831/pexels-photo-7579831.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "alt": "Healthcare patient portal design on tablet",
       "attribution": {
-        "author": "Gustavo Fring",
+        "author": "Anna Shvets",
         "source": "pexels",
-        "url": "https://www.pexels.com/photo/4386466/"
+        "url": "https://www.pexels.com/photo/7579831/"
       },
       "category": "project-cover",
       "tags": ["healthcare", "portal", "accessibility"]
     },
     {
       "id": "project-cover-4",
-      "url": "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "alt": "E-commerce design system components",
+      "url": "https://images.pexels.com/photos/4065876/pexels-photo-4065876.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "alt": "E-commerce design system components on screen",
       "attribution": {
-        "author": "Christina Morillo",
+        "author": "cottonbro studio",
         "source": "pexels",
-        "url": "https://www.pexels.com/photo/1181244/"
+        "url": "https://www.pexels.com/photo/4065876/"
       },
       "category": "project-cover",
       "tags": ["e-commerce", "design-system", "components"]
     },
     {
       "id": "project-cover-5",
-      "url": "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "alt": "Data analytics dashboard visualization",
+      "url": "https://images.pexels.com/photos/6801874/pexels-photo-6801874.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "alt": "Data analytics dashboard visualization interface",
       "attribution": {
-        "author": "Lukas",
+        "author": "Tima Miroshnichenko",
         "source": "pexels",
-        "url": "https://www.pexels.com/photo/590022/"
+        "url": "https://www.pexels.com/photo/6801874/"
       },
       "category": "project-cover",
       "tags": ["analytics", "data-viz", "dashboard"]
     },
     {
       "id": "project-cover-6",
-      "url": "https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "alt": "Luxury brand campaign creative",
+      "url": "https://images.pexels.com/photos/3183165/pexels-photo-3183165.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "alt": "Luxury brand campaign creative on display",
       "attribution": {
-        "author": "Chloe",
+        "author": "fauxels",
         "source": "pexels",
-        "url": "https://www.pexels.com/photo/1926769/"
+        "url": "https://www.pexels.com/photo/3183165/"
       },
       "category": "project-cover",
       "tags": ["branding", "luxury", "campaign"]
     },
     {
       "id": "project-cover-7",
-      "url": "https://images.pexels.com/photos/5905857/pexels-photo-5905857.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "alt": "Online learning platform interface",
+      "url": "https://images.pexels.com/photos/4145353/pexels-photo-4145353.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "alt": "Online learning platform interface on laptop",
       "attribution": {
-        "author": "Julia M Cameron",
+        "author": "cottonbro studio",
         "source": "pexels",
-        "url": "https://www.pexels.com/photo/5905857/"
+        "url": "https://www.pexels.com/photo/4145353/"
       },
       "category": "project-cover",
       "tags": ["education", "learning", "platform"]
     },
     {
       "id": "project-cover-8",
-      "url": "https://images.pexels.com/photos/3214995/pexels-photo-3214995.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "alt": "Travel booking platform interface",
+      "url": "https://images.pexels.com/photos/4553277/pexels-photo-4553277.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "alt": "Travel booking platform interface with maps",
       "attribution": {
-        "author": "Andrea Piacquadio",
+        "author": "Vlada Karpovich",
         "source": "pexels",
-        "url": "https://www.pexels.com/photo/3214995/"
+        "url": "https://www.pexels.com/photo/4553277/"
       },
       "category": "project-cover",
       "tags": ["travel", "booking", "ai"]
@@ -111,7 +111,7 @@
     {
       "id": "project-cover-9",
       "url": "https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "alt": "Nonprofit donation platform design",
+      "alt": "Nonprofit donation platform mobile interface",
       "attribution": {
         "author": "RODNAE Productions",
         "source": "pexels",
@@ -123,7 +123,7 @@
     {
       "id": "project-cover-10",
       "url": "https://images.pexels.com/photos/4393426/pexels-photo-4393426.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "alt": "Food delivery mobile app",
+      "alt": "Food delivery mobile app interface",
       "attribution": {
         "author": "Norma Mortenson",
         "source": "pexels",
@@ -134,36 +134,36 @@
     },
     {
       "id": "project-cover-11",
-      "url": "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "alt": "B2B CRM platform interface",
+      "url": "https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "alt": "B2B CRM platform interface on desktop",
       "attribution": {
-        "author": "Fauxels",
+        "author": "Tima Miroshnichenko",
         "source": "pexels",
-        "url": "https://www.pexels.com/photo/3184465/"
+        "url": "https://www.pexels.com/photo/7688336/"
       },
       "category": "project-cover",
       "tags": ["crm", "b2b", "enterprise"]
     },
     {
       "id": "project-cover-12",
-      "url": "https://images.pexels.com/photos/4720774/pexels-photo-4720774.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "alt": "Fitness and wellness app design",
+      "url": "https://images.pexels.com/photos/4498362/pexels-photo-4498362.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "alt": "Fitness and wellness app design on phone",
       "attribution": {
         "author": "Karolina Grabowska",
         "source": "pexels",
-        "url": "https://www.pexels.com/photo/4720774/"
+        "url": "https://www.pexels.com/photo/4498362/"
       },
       "category": "project-cover",
       "tags": ["fitness", "wellness", "health-tracker"]
     },
     {
       "id": "case-study-hero",
-      "url": "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "url": "https://images.pexels.com/photos/7599735/pexels-photo-7599735.jpeg?auto=compress&cs=tinysrgb&w=1600",
       "alt": "SATH incident management platform interface",
       "attribution": {
-        "author": "ThisIsEngineering",
+        "author": "MART PRODUCTION",
         "source": "pexels",
-        "url": "https://www.pexels.com/photo/3861969/"
+        "url": "https://www.pexels.com/photo/7599735/"
       },
       "category": "case-study",
       "tags": ["enterprise", "incident-management", "dashboard"]
@@ -179,6 +179,54 @@
       },
       "category": "about",
       "tags": ["workspace", "professional", "design"]
+    },
+    {
+      "id": "carousel-1",
+      "url": "https://images.pexels.com/photos/6802049/pexels-photo-6802049.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "alt": "Modern mobile app UI design showcase",
+      "attribution": {
+        "author": "Tima Miroshnichenko",
+        "source": "pexels",
+        "url": "https://www.pexels.com/photo/6802049/"
+      },
+      "category": "carousel",
+      "tags": ["mobile-ui", "app-design", "modern"]
+    },
+    {
+      "id": "carousel-2",
+      "url": "https://images.pexels.com/photos/7688465/pexels-photo-7688465.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "alt": "Website design on multiple devices",
+      "attribution": {
+        "author": "Tima Miroshnichenko",
+        "source": "pexels",
+        "url": "https://www.pexels.com/photo/7688465/"
+      },
+      "category": "carousel",
+      "tags": ["responsive", "web-design", "multi-device"]
+    },
+    {
+      "id": "carousel-3",
+      "url": "https://images.pexels.com/photos/7599826/pexels-photo-7599826.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "alt": "Creative UI design process and wireframes",
+      "attribution": {
+        "author": "MART PRODUCTION",
+        "source": "pexels",
+        "url": "https://www.pexels.com/photo/7599826/"
+      },
+      "category": "carousel",
+      "tags": ["wireframes", "design-process", "ux"]
+    },
+    {
+      "id": "carousel-4",
+      "url": "https://images.pexels.com/photos/4508751/pexels-photo-4508751.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "alt": "Dashboard analytics and data visualization",
+      "attribution": {
+        "author": "cottonbro studio",
+        "source": "pexels",
+        "url": "https://www.pexels.com/photo/4508751/"
+      },
+      "category": "carousel",
+      "tags": ["dashboard", "analytics", "data-viz"]
     }
   ]
 }

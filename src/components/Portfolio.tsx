@@ -3,8 +3,8 @@
  * References: REQ-07 (Portfolio Grid)
  */
 
-import { useState, useMemo } from 'react';
-import { ExternalLink, Figma, Award, Filter } from 'lucide-react';
+import { useState } from 'react';
+import { ExternalLink, Award, Filter } from 'lucide-react';
 import { useFilteredProjects, useFilterOptions, useHasCaseStudy } from '../hooks/useProjects';
 import { usePortfolioContent } from '../hooks/useContent';
 import { useImageUrl } from '../hooks/useImages';
