@@ -3,7 +3,7 @@
  * References: REQ-07 (Portfolio Grid)
  */
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import { Award, Search, Sparkles } from 'lucide-react';
 import { useAllProjects } from '../hooks/useProjects';
 import { usePortfolioContent } from '../hooks/useContent';
@@ -17,20 +17,22 @@ interface PortfolioProps {
 export default function Portfolio({ onNavigate }: PortfolioProps) {
   const content = usePortfolioContent();
   const allProjects = useAllProjects();
-  const [selectedCategory, setSelectedCategory] = useState('All');
-  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState<string>('All');
+  const [searchQuery, setSearchQuery] = useState<string>('');
 
-  const categories = useMemo(() => ['All', ...projectService.getCategories()], []);
+  const categories = useMemo(() => {
+    return ['All', ...projectService.getCategories()];
+  }, []);
 
   const projects = useMemo(() => {
-    let filtered = allProjects;
+    let filtered = [...allProjects];
 
     if (selectedCategory !== 'All') {
       filtered = filtered.filter(p => p.category.includes(selectedCategory));
     }
 
-    if (searchQuery) {
-      const query = searchQuery.toLowerCase();
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase().trim();
       filtered = filtered.filter(p =>
         p.title.toLowerCase().includes(query) ||
         p.summary.toLowerCase().includes(query) ||
@@ -41,12 +43,16 @@ export default function Portfolio({ onNavigate }: PortfolioProps) {
     return filtered;
   }, [allProjects, selectedCategory, searchQuery]);
 
-  const hasActiveFilters = selectedCategory !== 'All' || searchQuery !== '';
+  const handleCategoryClick = useCallback((category: string) => {
+    setSelectedCategory(category);
+  }, []);
 
-  const clearAll = () => {
+  const hasActiveFilters = selectedCategory !== 'All' || searchQuery.trim() !== '';
+
+  const clearAll = useCallback(() => {
     setSelectedCategory('All');
     setSearchQuery('');
-  };
+  }, []);
 
   return (
     <section className="min-h-screen py-32 px-6 sm:px-8 lg:px-12 bg-gradient-to-b from-white via-gray-50/50 to-white">
@@ -77,20 +83,18 @@ export default function Portfolio({ onNavigate }: PortfolioProps) {
 
         <div className="flex flex-wrap items-center justify-between gap-6 mb-12">
           <div className="flex flex-wrap gap-3">
-            {categories.map(cat => (
+            {categories.map((cat) => (
               <button
                 key={cat}
                 type="button"
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  setSelectedCategory(cat);
-                }}
-                className={`px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 cursor-pointer ${
+                onClick={() => handleCategoryClick(cat)}
+                className={`px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 cursor-pointer hover:scale-105 active:scale-95 ${
                   selectedCategory === cat
                     ? 'bg-gray-900 text-white shadow-lg'
                     : 'bg-white text-gray-600 hover:text-gray-900 hover:bg-gray-50 border border-gray-200 hover:border-gray-300'
                 }`}
+                aria-pressed={selectedCategory === cat}
+                aria-label={`Filter by ${cat}`}
               >
                 {cat}
               </button>
@@ -104,14 +108,11 @@ export default function Portfolio({ onNavigate }: PortfolioProps) {
             {hasActiveFilters && (
               <button
                 type="button"
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  clearAll();
-                }}
-                className="text-gray-700 hover:text-gray-900 font-semibold focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 rounded-lg px-3 py-1 cursor-pointer"
+                onClick={clearAll}
+                className="text-gray-700 hover:text-gray-900 font-semibold focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 rounded-lg px-3 py-1 cursor-pointer hover:bg-gray-100 active:bg-gray-200 transition-colors"
+                aria-label="Clear all filters"
               >
-                Clear
+                Clear All
               </button>
             )}
           </div>

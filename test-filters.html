@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Filter Button Test</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+        }
+        .filter-btn {
+            padding: 12px 24px;
+            margin: 5px;
+            border-radius: 25px;
+            border: 2px solid #ddd;
+            background: white;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .filter-btn.active {
+            background: #111;
+            color: white;
+            border-color: #111;
+        }
+        .filter-btn:hover {
+            background: #f5f5f5;
+        }
+        .filter-btn.active:hover {
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+    <h1>Filter Button Test</h1>
+    <p>Current filter: <strong id="current">All</strong></p>
+
+    <div id="filters"></div>
+
+    <script>
+        const categories = ['All', 'Apps', 'Branding', 'Design Systems', 'Campaigns'];
+        let selectedCategory = 'All';
+
+        const filtersDiv = document.getElementById('filters');
+        const currentText = document.getElementById('current');
+
+        categories.forEach(cat => {
+            const btn = document.createElement('button');
+            btn.className = 'filter-btn';
+            btn.textContent = cat;
+            btn.type = 'button';
+
+            if (cat === selectedCategory) {
+                btn.classList.add('active');
+            }
+
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                console.log('Clicked:', cat);
+                selectedCategory = cat;
+                currentText.textContent = cat;
+
+                // Update all buttons
+                document.querySelectorAll('.filter-btn').forEach(b => {
+                    b.classList.remove('active');
+                });
+                btn.classList.add('active');
+            });
+
+            filtersDiv.appendChild(btn);
+        });
+    </script>
+</body>
+</html>
