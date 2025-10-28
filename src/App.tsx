@@ -15,16 +15,16 @@ import Footer from './components/Footer';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
+  const metadata = usePageMetadata(currentPage);
 
   useEffect(() => {
-    const metadata = usePageMetadata(currentPage);
     document.title = metadata.title;
 
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute('content', metadata.description);
     }
-  }, [currentPage]);
+  }, [currentPage, metadata]);
 
   return (
     <div className="min-h-screen bg-white">
