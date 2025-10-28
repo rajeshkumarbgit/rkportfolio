@@ -37,8 +37,9 @@ export default function Hero({ onNavigate }: HeroProps) {
             {content.ctas.map((cta, idx) => (
               <button
                 key={idx}
+                type="button"
                 onClick={() => onNavigate(cta.action)}
-                className={`group inline-flex items-center px-8 py-4 font-semibold rounded-2xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
+                className={`group inline-flex items-center px-8 py-4 font-semibold rounded-2xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer ${
                   cta.variant === 'primary'
                     ? 'bg-gradient-to-r from-blue-600 to-blue-500 text-white hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-1 focus:ring-blue-500'
                     : cta.variant === 'secondary'

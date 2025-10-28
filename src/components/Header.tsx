@@ -51,8 +51,9 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
         <div className="flex items-center justify-between h-20">
           <button
+            type="button"
             onClick={() => handleNavClick('home')}
-            className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent hover:from-blue-500 hover:to-blue-600 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
+            className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent hover:from-blue-500 hover:to-blue-600 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded cursor-pointer"
             aria-label="Go to home page"
           >
             RK
@@ -62,8 +63,9 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
             {navItems.map((item) => (
               <button
                 key={item.id}
+                type="button"
                 onClick={() => handleNavClick(item.id)}
-                className={`px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
+                className={`px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer ${
                   currentPage === item.id
                     ? 'bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-lg shadow-blue-500/30'
                     : 'text-gray-700 hover:bg-gray-100'

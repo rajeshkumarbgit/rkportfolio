@@ -80,8 +80,13 @@ export default function Portfolio({ onNavigate }: PortfolioProps) {
             {categories.map(cat => (
               <button
                 key={cat}
-                onClick={() => setSelectedCategory(cat)}
-                className={`px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 ${
+                type="button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setSelectedCategory(cat);
+                }}
+                className={`px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 cursor-pointer ${
                   selectedCategory === cat
                     ? 'bg-gray-900 text-white shadow-lg'
                     : 'bg-white text-gray-600 hover:text-gray-900 hover:bg-gray-50 border border-gray-200 hover:border-gray-300'
@@ -98,8 +103,13 @@ export default function Portfolio({ onNavigate }: PortfolioProps) {
             </span>
             {hasActiveFilters && (
               <button
-                onClick={clearAll}
-                className="text-gray-700 hover:text-gray-900 font-semibold focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 rounded-lg px-3 py-1"
+                type="button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  clearAll();
+                }}
+                className="text-gray-700 hover:text-gray-900 font-semibold focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 rounded-lg px-3 py-1 cursor-pointer"
               >
                 Clear
               </button>
