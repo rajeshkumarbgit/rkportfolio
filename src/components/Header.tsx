@@ -1,9 +1,3 @@
-/**
- * Header Component
- * Dynamic header with hide-on-scroll behavior
- * References: REQ-03 (Navigation), REQ-11 (Accessibility)
- */
-
 import { useState, useEffect } from 'react';
 import { Menu, X, Download, Calendar } from 'lucide-react';
 import { useNavigation, useContactInfo } from '../hooks/useConfig';
@@ -50,28 +44,28 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-sm' : 'bg-white/95 backdrop-blur-sm'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100' : 'bg-transparent'
       } ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           <button
             onClick={() => handleNavClick('home')}
-            className="text-xl font-bold text-gray-900 hover:text-gray-600 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 rounded"
+            className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent hover:from-blue-500 hover:to-blue-600 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
             aria-label="Go to home page"
           >
-            Rajesh Kumar
+            RK
           </button>
 
-          <div className="hidden md:flex items-center space-x-1">
+          <div className="hidden md:flex items-center space-x-2">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 ${
+                className={`px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
                   currentPage === item.id
-                    ? 'bg-gray-900 text-white'
+                    ? 'bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-lg shadow-blue-500/30'
                     : 'text-gray-700 hover:bg-gray-100'
                 }`}
                 aria-current={currentPage === item.id ? 'page' : undefined}
@@ -80,29 +74,29 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
               </button>
             ))}
 
-            <div className="ml-4 flex items-center space-x-2">
+            <div className="ml-4 flex items-center space-x-3 pl-4 border-l border-gray-200">
               <a
                 href="#download-resume"
-                className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 rounded-lg"
+                className="inline-flex items-center px-4 py-2.5 text-sm font-semibold text-gray-700 hover:text-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-xl"
                 aria-label="Download resume"
               >
                 <Download className="w-4 h-4 mr-2" />
-                {labels.downloadResume || 'Resume'}
+                Resume
               </a>
               <a
                 href={`mailto:${email}`}
-                className="inline-flex items-center px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
-                aria-label="Book a 20-minute call"
+                className="inline-flex items-center px-5 py-2.5 bg-gradient-to-r from-blue-600 to-blue-500 text-white text-sm font-semibold rounded-xl hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                aria-label="Book a call"
               >
                 <Calendar className="w-4 h-4 mr-2" />
-                {labels.bookCall || 'Book Call'}
+                Book Call
               </a>
             </div>
           </div>
 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
+            className="md:hidden p-2.5 text-gray-700 hover:bg-gray-100 rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isMenuOpen}
           >
@@ -111,15 +105,15 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
         </div>
 
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200">
+          <div className="md:hidden py-6 border-t border-gray-100 animate-fade-in">
             <div className="flex flex-col space-y-2">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => handleNavClick(item.id)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium text-left transition-colors focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 ${
+                  className={`px-5 py-3 rounded-xl text-sm font-semibold text-left transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
                     currentPage === item.id
-                      ? 'bg-gray-900 text-white'
+                      ? 'bg-gradient-to-r from-blue-600 to-blue-500 text-white'
                       : 'text-gray-700 hover:bg-gray-100'
                   }`}
                   aria-current={currentPage === item.id ? 'page' : undefined}
@@ -128,20 +122,20 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
                 </button>
               ))}
 
-              <div className="pt-2 flex flex-col space-y-2">
+              <div className="pt-4 flex flex-col space-y-2 border-t border-gray-100 mt-2">
                 <a
                   href="#download-resume"
-                  className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
+                  className="inline-flex items-center px-5 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100 rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                 >
                   <Download className="w-4 h-4 mr-2" />
-                  {labels.downloadResume || 'Download Resume'}
+                  Download Resume
                 </a>
                 <a
                   href={`mailto:${email}`}
-                  className="inline-flex items-center px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
+                  className="inline-flex items-center px-5 py-3 bg-gradient-to-r from-blue-600 to-blue-500 text-white text-sm font-semibold rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                 >
                   <Calendar className="w-4 h-4 mr-2" />
-                  {labels.bookCall || 'Book Call'}
+                  Book Call
                 </a>
               </div>
             </div>
