@@ -15,8 +15,6 @@ class ProjectService {
   constructor() {
     this.projects = projectsData.projects as Project[];
     this.caseStudies = caseStudiesData.caseStudies as CaseStudy[];
-    console.log('🛠️ ProjectService initialized with', this.projects.length, 'projects');
-    console.log('First project:', this.projects[0]?.title, this.projects[0]?.category);
   }
 
   /**
