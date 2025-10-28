@@ -9,27 +9,27 @@ export default function Hero({ onNavigate }: HeroProps) {
   const content = useHeroContent();
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-white">
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400/20 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-300/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
+    <section className="relative min-h-screen flex items-center justify-center px-6 sm:px-8 lg:px-12 overflow-hidden bg-gradient-to-br from-white via-blue-50/20 to-white">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-20 right-10 w-[32rem] h-[32rem] bg-blue-300/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
       </div>
 
       <div className="relative max-w-7xl mx-auto w-full">
         <div className="text-center space-y-8 animate-fade-in">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm border border-blue-100 rounded-full text-sm font-medium text-blue-700 shadow-sm animate-slide-up">
-            <Sparkles className="w-4 h-4" />
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-md border border-gray-200 rounded-full text-sm font-semibold text-gray-700 shadow-sm animate-slide-up">
+            <Sparkles className="w-4 h-4 text-blue-600" />
             <span>{content.subtext.split('—')[0].trim()}</span>
           </div>
 
-          <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold text-gray-900 leading-tight animate-slide-up" style={{ animationDelay: '0.1s' }}>
-            <span className="block mb-2">{content.tagline.split('.')[0]}.</span>
-            <span className="block bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 bg-clip-text text-transparent">
+          <h1 className="text-5xl sm:text-6xl lg:text-[5.5rem] font-bold text-gray-900 leading-[1.1] tracking-tight animate-slide-up" style={{ animationDelay: '0.1s' }}>
+            <span className="block mb-3">{content.tagline.split('.')[0]}.</span>
+            <span className="block bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">
               {content.tagline.split('.')[1]}.
             </span>
           </h1>
 
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed animate-slide-up" style={{ animationDelay: '0.2s' }}>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed animate-slide-up" style={{ animationDelay: '0.2s', lineHeight: '1.6' }}>
             {content.description}
           </p>
 
@@ -54,27 +54,26 @@ export default function Hero({ onNavigate }: HeroProps) {
             ))}
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 pt-12 max-w-4xl mx-auto animate-slide-up" style={{ animationDelay: '0.4s' }}>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-16 max-w-5xl mx-auto animate-slide-up" style={{ animationDelay: '0.4s' }}>
             {content.stats.map((stat, idx) => (
-              <div key={idx} className="relative group">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-blue-600/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="relative p-6 bg-white/80 backdrop-blur-sm border border-gray-100 rounded-2xl hover:border-blue-200 transition-all">
-                  <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent mb-2">
+              <div key={idx} className="group">
+                <div className="relative p-8 bg-white/90 backdrop-blur-md border border-gray-200 rounded-3xl hover:border-gray-300 hover:shadow-lg transition-all duration-500">
+                  <div className="text-5xl font-bold bg-gradient-to-br from-gray-900 to-gray-700 bg-clip-text text-transparent mb-2">
                     {stat.value}
                   </div>
-                  <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
+                  <div className="text-sm text-gray-500 font-medium">{stat.label}</div>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="pt-12 animate-slide-up" style={{ animationDelay: '0.5s' }}>
-            <p className="text-sm text-gray-500 mb-6">{content.trustBar.title}</p>
-            <div className="flex flex-wrap items-center justify-center gap-8">
+          <div className="pt-20 animate-slide-up" style={{ animationDelay: '0.5s' }}>
+            <p className="text-sm text-gray-400 mb-8 font-medium">{content.trustBar.title}</p>
+            <div className="flex flex-wrap items-center justify-center gap-12">
               {content.trustBar.clients.map((client, idx) => (
                 <div
                   key={idx}
-                  className="px-6 py-3 bg-white/60 backdrop-blur-sm border border-gray-100 rounded-xl text-lg font-bold text-gray-400 hover:text-gray-900 hover:border-gray-300 transition-all"
+                  className="text-xl font-semibold text-gray-300 hover:text-gray-600 transition-colors duration-300"
                 >
                   {client}
                 </div>
