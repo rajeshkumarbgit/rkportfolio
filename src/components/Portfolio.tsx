@@ -20,34 +20,46 @@ export default function Portfolio({ onNavigate }: PortfolioProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
+  console.log('🔄 Portfolio Render - Total Projects:', allProjects.length);
+  console.log('📂 Selected Category:', selectedCategory);
+
   const categories = useMemo(() => {
     return ['All', ...projectService.getCategories()];
   }, []);
 
   const projects = useMemo(() => {
+    console.log('🔍 Filter starting with', allProjects.length, 'projects');
     let filtered = [...allProjects];
 
     if (selectedCategory !== 'All') {
+      console.log('📌 Filtering by category:', selectedCategory);
       filtered = filtered.filter(p => {
         const hasCategory = Array.isArray(p.category) && p.category.includes(selectedCategory);
+        console.log(`  Project "${p.title}" has categories:`, p.category, '→', hasCategory ? '✅' : '❌');
         return hasCategory;
       });
+      console.log('✅ After category filter:', filtered.length, 'projects');
     }
 
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase().trim();
+      console.log('🔎 Searching for:', query);
       filtered = filtered.filter(p =>
         p.title.toLowerCase().includes(query) ||
         p.summary.toLowerCase().includes(query) ||
         p.tags.some(tag => tag.toLowerCase().includes(query))
       );
+      console.log('✅ After search filter:', filtered.length, 'projects');
     }
 
+    console.log('🎯 Final result:', filtered.length, 'projects');
     return filtered;
   }, [allProjects, selectedCategory, searchQuery]);
 
   const handleCategoryClick = useCallback((category: string) => {
+    console.log('🎯 Category clicked:', category);
     setSelectedCategory(category);
+    console.log('✅ State should update to:', category);
   }, []);
 
   const hasActiveFilters = selectedCategory !== 'All' || searchQuery.trim() !== '';

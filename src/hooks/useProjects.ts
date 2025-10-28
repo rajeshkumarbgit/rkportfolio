@@ -12,7 +12,14 @@ import type { Project, ProjectFilters, CaseStudy } from '../types';
  * Hook to get all projects
  */
 export function useAllProjects(): Project[] {
-  return useMemo(() => projectService.getAllProjects(), []);
+  return useMemo(() => {
+    const projects = projectService.getAllProjects();
+    console.log('📦 useAllProjects returning:', projects.length, 'projects');
+    if (projects.length > 0) {
+      console.log('Sample project category:', projects[0].title, projects[0].category);
+    }
+    return projects;
+  }, []);
 }
 
 /**

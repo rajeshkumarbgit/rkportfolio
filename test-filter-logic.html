@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Logic Test</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .controls {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .filter-btn {
+            padding: 10px 20px;
+            margin: 5px;
+            border: 2px solid #ddd;
+            background: white;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .filter-btn.active {
+            background: #111;
+            color: white;
+            border-color: #111;
+        }
+        .filter-btn:hover {
+            transform: scale(1.05);
+        }
+        .results {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .project-card {
+            padding: 15px;
+            margin: 10px 0;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border-left: 4px solid #111;
+        }
+        .project-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .project-categories {
+            color: #666;
+            font-size: 14px;
+        }
+        .stats {
+            padding: 10px;
+            background: #e3f2fd;
+            border-radius: 4px;
+            margin: 20px 0;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Portfolio Filter Test</h1>
+
+    <div class="controls">
+        <h2>Filter by Category</h2>
+        <div id="filters"></div>
+        <div class="stats" id="stats"></div>
+    </div>
+
+    <div class="results">
+        <h2>Results</h2>
+        <div id="projects"></div>
+    </div>
+
+    <script>
+        // Load projects data
+        fetch('./src/data/projects.json')
+            .then(res => res.json())
+            .then(data => {
+                const projects = data.projects;
+
+                // Get unique categories
+                const categoriesSet = new Set();
+                projects.forEach(p => p.category.forEach(c => categoriesSet.add(c)));
+                const categories = ['All', ...Array.from(categoriesSet).sort()];
+
+                let selectedCategory = 'All';
+
+                function renderFilters() {
+                    const filtersDiv = document.getElementById('filters');
+                    filtersDiv.innerHTML = '';
+
+                    categories.forEach(cat => {
+                        const btn = document.createElement('button');
+                        btn.className = 'filter-btn' + (cat === selectedCategory ? ' active' : '');
+                        btn.textContent = cat;
+                        btn.onclick = () => {
+                            selectedCategory = cat;
+                            console.log('🎯 Filter clicked:', cat);
+                            renderFilters();
+                            renderProjects();
+                        };
+                        filtersDiv.appendChild(btn);
+                    });
+                }
+
+                function renderProjects() {
+                    console.log('🔄 Filtering projects...');
+                    console.log('Selected category:', selectedCategory);
+                    console.log('Total projects:', projects.length);
+
+                    let filtered = projects;
+
+                    if (selectedCategory !== 'All') {
+                        filtered = projects.filter(p => {
+                            const hasCategory = Array.isArray(p.category) && p.category.includes(selectedCategory);
+                            console.log(`  "${p.title}" categories:`, p.category, '→', hasCategory ? '✅' : '❌');
+                            return hasCategory;
+                        });
+                    }
+
+                    console.log('✅ Filtered results:', filtered.length);
+
+                    const projectsDiv = document.getElementById('projects');
+                    const statsDiv = document.getElementById('stats');
+
+                    statsDiv.textContent = `Showing ${filtered.length} of ${projects.length} projects`;
+
+                    if (filtered.length === 0) {
+                        projectsDiv.innerHTML = '<p>No projects found for this category.</p>';
+                    } else {
+                        projectsDiv.innerHTML = filtered.map(p => `
+                            <div class="project-card">
+                                <div class="project-title">${p.title}</div>
+                                <div class="project-categories">Categories: ${p.category.join(', ')}</div>
+                            </div>
+                        `).join('');
+                    }
+                }
+
+                // Initial render
+                renderFilters();
+                renderProjects();
+
+                console.log('📊 Test page initialized');
+                console.log('Total projects loaded:', projects.length);
+                console.log('Available categories:', categories);
+            })
+            .catch(err => {
+                console.error('❌ Error loading projects:', err);
+                document.getElementById('projects').innerHTML = '<p style="color: red;">Error loading projects data!</p>';
+            });
+    </script>
+</body>
+</html>
