@@ -10,6 +10,19 @@
   body {
     @apply antialiased;
     font-feature-settings: 'cv11', 'ss01';
+    cursor: default;
+  }
+
+  * {
+    cursor: inherit;
+  }
+
+  a, button, [role="button"], input[type="submit"], input[type="button"], select {
+    cursor: pointer;
+  }
+
+  input[type="text"], input[type="email"], input[type="search"], textarea {
+    cursor: text;
   }
 
   @media (prefers-reduced-motion: reduce) {

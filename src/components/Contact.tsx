@@ -117,8 +117,9 @@ export default function Contact({ onNavigate }: ContactProps) {
                 </a>
 
                 <button
+                  type="button"
                   onClick={() => onNavigate('portfolio')}
-                  className="group flex items-center justify-between p-4 bg-white border-2 border-gray-200 rounded-lg hover:border-gray-900 transition-colors w-full text-left focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
+                  className="group flex items-center justify-between p-4 bg-white border-2 border-gray-200 rounded-lg hover:border-gray-900 transition-colors w-full text-left focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 cursor-pointer"
                 >
                   <span className="flex items-center gap-3 text-gray-900">
                     <CheckCircle className="w-5 h-5" />
@@ -236,8 +237,9 @@ export default function Contact({ onNavigate }: ContactProps) {
               Schedule a Call
             </a>
             <button
+              type="button"
               onClick={() => onNavigate('portfolio')}
-              className="inline-flex items-center px-6 py-3 bg-transparent border-2 border-white text-white font-medium rounded-lg hover:bg-white hover:text-gray-900 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900"
+              className="inline-flex items-center px-6 py-3 bg-transparent border-2 border-white text-white font-medium rounded-lg hover:bg-white hover:text-gray-900 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900 cursor-pointer"
             >
               View My Work
             </button>

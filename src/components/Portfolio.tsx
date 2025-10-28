@@ -28,7 +28,10 @@ export default function Portfolio({ onNavigate }: PortfolioProps) {
     let filtered = [...allProjects];
 
     if (selectedCategory !== 'All') {
-      filtered = filtered.filter(p => p.category.includes(selectedCategory));
+      filtered = filtered.filter(p => {
+        const hasCategory = Array.isArray(p.category) && p.category.includes(selectedCategory);
+        return hasCategory;
+      });
     }
 
     if (searchQuery.trim()) {
@@ -188,8 +191,9 @@ export default function Portfolio({ onNavigate }: PortfolioProps) {
           <div className="text-center py-16">
             <p className="text-xl text-gray-600 mb-4">{content.nothingFoundTitle}</p>
             <button
+              type="button"
               onClick={clearAll}
-              className="text-gray-900 hover:underline underline-offset-4 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 rounded"
+              className="text-gray-900 hover:underline underline-offset-4 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 rounded cursor-pointer"
             >
               {content.nothingFoundAction}
             </button>

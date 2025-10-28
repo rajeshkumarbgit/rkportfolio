@@ -18,6 +18,10 @@ interface CarouselProps {
 export default function Carousel({ items, autoPlay = false, interval = 5000, className = '' }: CarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  const minSwipeDistance = 50;
 
   useEffect(() => {
     if (!autoPlay || items.length <= 1) return;
@@ -50,13 +54,41 @@ export default function Carousel({ items, autoPlay = false, interval = 5000, cla
     setTimeout(() => setIsTransitioning(false), 300);
   };
 
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      handleNext();
+    } else if (isRightSwipe) {
+      handlePrevious();
+    }
+  };
+
   if (items.length === 0) {
     return null;
   }
 
   return (
     <div className={`relative w-full ${className}`}>
-      <div className="relative aspect-[16/9] overflow-hidden rounded-3xl bg-gray-100 shadow-2xl">
+      <div
+        className="relative aspect-[16/9] overflow-hidden rounded-3xl bg-gray-100 shadow-2xl touch-pan-y"
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+      >
         <div className="relative h-full w-full">
           {items.map((item, index) => (
             <div
@@ -86,19 +118,21 @@ export default function Carousel({ items, autoPlay = false, interval = 5000, cla
         {items.length > 1 && (
           <>
             <button
+              type="button"
               onClick={handlePrevious}
               disabled={isTransitioning}
               aria-label="Previous slide"
-              className="absolute left-6 top-1/2 -translate-y-1/2 p-4 bg-white/95 backdrop-blur-md hover:bg-white rounded-full shadow-xl transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="absolute left-6 top-1/2 -translate-y-1/2 p-4 bg-white/95 backdrop-blur-md hover:bg-white rounded-full shadow-xl transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
             >
               <ChevronLeft className="w-5 h-5 text-gray-900" />
             </button>
 
             <button
+              type="button"
               onClick={handleNext}
               disabled={isTransitioning}
               aria-label="Next slide"
-              className="absolute right-6 top-1/2 -translate-y-1/2 p-4 bg-white/95 backdrop-blur-md hover:bg-white rounded-full shadow-xl transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="absolute right-6 top-1/2 -translate-y-1/2 p-4 bg-white/95 backdrop-blur-md hover:bg-white rounded-full shadow-xl transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
             >
               <ChevronRight className="w-5 h-5 text-gray-900" />
             </button>
@@ -111,10 +145,11 @@ export default function Carousel({ items, autoPlay = false, interval = 5000, cla
           {items.map((_, index) => (
             <button
               key={index}
+              type="button"
               onClick={() => goToSlide(index)}
               disabled={isTransitioning}
               aria-label={`Go to slide ${index + 1}`}
-              className={`transition-all duration-500 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
+              className={`transition-all duration-500 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer ${
                 index === currentIndex
                   ? 'w-10 h-2.5 bg-gray-900'
                   : 'w-2.5 h-2.5 bg-gray-300 hover:bg-gray-400'

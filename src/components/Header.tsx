@@ -97,8 +97,9 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
           </div>
 
           <button
+            type="button"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2.5 text-gray-700 hover:bg-gray-100 rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            className="md:hidden p-2.5 text-gray-700 hover:bg-gray-100 rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer"
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isMenuOpen}
           >
@@ -112,8 +113,9 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
               {navItems.map((item) => (
                 <button
                   key={item.id}
+                  type="button"
                   onClick={() => handleNavClick(item.id)}
-                  className={`px-5 py-3 rounded-xl text-sm font-semibold text-left transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
+                  className={`px-5 py-3 rounded-xl text-sm font-semibold text-left transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer ${
                     currentPage === item.id
                       ? 'bg-gradient-to-r from-blue-600 to-blue-500 text-white'
                       : 'text-gray-700 hover:bg-gray-100'

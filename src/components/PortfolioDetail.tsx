@@ -21,8 +21,9 @@ export default function PortfolioDetail({ projectSlug, onNavigate }: PortfolioDe
         <div className="text-center">
           <p className="text-xl text-gray-600 mb-4">Project not found</p>
           <button
+            type="button"
             onClick={() => onNavigate('portfolio')}
-            className="text-gray-900 underline"
+            className="text-gray-900 underline cursor-pointer"
           >
             Back to Portfolio
           </button>
@@ -56,8 +57,9 @@ export default function PortfolioDetail({ projectSlug, onNavigate }: PortfolioDe
     <article className="min-h-screen bg-white pt-20">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16">
         <button
+          type="button"
           onClick={() => onNavigate('portfolio')}
-          className="inline-flex items-center text-gray-600 hover:text-gray-900 mb-12 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 rounded-lg px-4 py-2 transition-all"
+          className="inline-flex items-center text-gray-600 hover:text-gray-900 mb-12 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 rounded-lg px-4 py-2 transition-all cursor-pointer"
         >
           <ArrowLeft className="w-5 h-5 mr-2" />
           Back to Portfolio
@@ -167,15 +169,17 @@ export default function PortfolioDetail({ projectSlug, onNavigate }: PortfolioDe
               {images.length > 1 && (
                 <>
                   <button
+                    type="button"
                     onClick={handlePrevImage}
-                    className="absolute left-6 top-1/2 -translate-y-1/2 p-4 bg-white/95 backdrop-blur-md hover:bg-white rounded-full shadow-xl transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
+                    className="absolute left-6 top-1/2 -translate-y-1/2 p-4 bg-white/95 backdrop-blur-md hover:bg-white rounded-full shadow-xl transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 cursor-pointer"
                   >
                     <ChevronLeft className="w-5 h-5 text-gray-900" />
                   </button>
 
                   <button
+                    type="button"
                     onClick={handleNextImage}
-                    className="absolute right-6 top-1/2 -translate-y-1/2 p-4 bg-white/95 backdrop-blur-md hover:bg-white rounded-full shadow-xl transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
+                    className="absolute right-6 top-1/2 -translate-y-1/2 p-4 bg-white/95 backdrop-blur-md hover:bg-white rounded-full shadow-xl transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 cursor-pointer"
                   >
                     <ChevronRight className="w-5 h-5 text-gray-900" />
                   </button>
@@ -184,8 +188,9 @@ export default function PortfolioDetail({ projectSlug, onNavigate }: PortfolioDe
                     {images.map((_, index) => (
                       <button
                         key={index}
+                        type="button"
                         onClick={() => setCurrentImageIndex(index)}
-                        className={`transition-all duration-500 rounded-full focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 ${
+                        className={`transition-all duration-500 rounded-full focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 cursor-pointer ${
                           index === currentImageIndex
                             ? 'w-10 h-2.5 bg-white'
                             : 'w-2.5 h-2.5 bg-white/50 hover:bg-white/75'
@@ -204,8 +209,9 @@ export default function PortfolioDetail({ projectSlug, onNavigate }: PortfolioDe
                   return (
                     <button
                       key={idx}
+                      type="button"
                       onClick={() => setCurrentImageIndex(idx)}
-                      className={`aspect-[4/3] rounded-xl overflow-hidden border-2 transition-all ${
+                      className={`aspect-[4/3] rounded-xl overflow-hidden border-2 transition-all cursor-pointer ${
                         idx === currentImageIndex
                           ? 'border-gray-900 scale-105'
                           : 'border-gray-200 hover:border-gray-400'
@@ -226,8 +232,9 @@ export default function PortfolioDetail({ projectSlug, onNavigate }: PortfolioDe
 
         <div className="flex items-center justify-between py-12 border-t-2 border-gray-200">
           <button
+            type="button"
             onClick={handlePrevProject}
-            className="group flex items-center gap-3 px-6 py-4 bg-gray-50 hover:bg-gray-100 rounded-2xl transition-all focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
+            className="group flex items-center gap-3 px-6 py-4 bg-gray-50 hover:bg-gray-100 rounded-2xl transition-all focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 cursor-pointer"
           >
             <ChevronLeft className="w-5 h-5 text-gray-600 group-hover:text-gray-900" />
             <div className="text-left">
@@ -239,8 +246,9 @@ export default function PortfolioDetail({ projectSlug, onNavigate }: PortfolioDe
           </button>
 
           <button
+            type="button"
             onClick={handleNextProject}
-            className="group flex items-center gap-3 px-6 py-4 bg-gray-50 hover:bg-gray-100 rounded-2xl transition-all focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
+            className="group flex items-center gap-3 px-6 py-4 bg-gray-50 hover:bg-gray-100 rounded-2xl transition-all focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 cursor-pointer"
           >
             <div className="text-right">
               <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Next</div>
