@@ -1,0 +1,52 @@
+{
+  "categories": [
+    {
+      "category": "UX Design",
+      "icon": "Palette",
+      "skills": [
+        { "name": "User Research", "level": 95, "years": "20+" },
+        { "name": "Information Architecture", "level": 98, "years": "20+" },
+        { "name": "Wireframing & Prototyping", "level": 95, "years": "20+" },
+        { "name": "Interaction Design", "level": 92, "years": "18+" },
+        { "name": "Usability Testing", "level": 90, "years": "20+" },
+        { "name": "Design Systems", "level": 95, "years": "10+" }
+      ]
+    },
+    {
+      "category": "Frontend Development",
+      "icon": "Code",
+      "skills": [
+        { "name": "React & React Native", "level": 95, "years": "8+" },
+        { "name": "Angular & RxJS", "level": 92, "years": "9+" },
+        { "name": "TypeScript & JavaScript", "level": 95, "years": "15+" },
+        { "name": "Next.js & Vue.js", "level": 88, "years": "5+" },
+        { "name": "State Management (Redux/NgRx)", "level": 90, "years": "7+" },
+        { "name": "Testing (Jest/Cypress)", "level": 85, "years": "6+" }
+      ]
+    },
+    {
+      "category": "Tools & Platforms",
+      "icon": "Zap",
+      "skills": [
+        { "name": "Figma & Sketch", "level": 95, "years": "12+" },
+        { "name": "HTML5 & CSS3/Sass", "level": 98, "years": "20+" },
+        { "name": "Tailwind & Styled Components", "level": 92, "years": "5+" },
+        { "name": "Git & CI/CD", "level": 90, "years": "15+" },
+        { "name": "Web Performance Optimization", "level": 88, "years": "10+" },
+        { "name": "Accessibility (WCAG 2.2)", "level": 92, "years": "8+" }
+      ]
+    },
+    {
+      "category": "Product & Strategy",
+      "icon": "Target",
+      "skills": [
+        { "name": "Product Strategy", "level": 88, "years": "15+" },
+        { "name": "Stakeholder Management", "level": 92, "years": "18+" },
+        { "name": "Agile & Lean UX", "level": 90, "years": "12+" },
+        { "name": "Design Operations", "level": 85, "years": "8+" },
+        { "name": "Mentoring & Leadership", "level": 90, "years": "12+" },
+        { "name": "Data-Driven Design", "level": 88, "years": "10+" }
+      ]
+    }
+  ]
+}

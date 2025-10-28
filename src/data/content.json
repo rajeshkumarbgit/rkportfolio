@@ -1,0 +1,210 @@
+{
+  "hero": {
+    "tagline": "Designing Systems. Shipping Experiences.",
+    "subtext": "UI/UX Product Designer & UI Developer — 20+ years — Frontend across Angular/React/Next, Design Systems, Data-dense UIs",
+    "description": "Bridging UX strategy and production-grade frontend for 20+ years. I create data-dense enterprise experiences and consumer apps that scale across teams and time.",
+    "ctas": [
+      {
+        "label": "View Portfolio",
+        "action": "portfolio",
+        "variant": "primary"
+      },
+      {
+        "label": "Case Study",
+        "action": "case-study",
+        "variant": "secondary"
+      },
+      {
+        "label": "Get in Touch",
+        "action": "contact",
+        "variant": "tertiary"
+      }
+    ],
+    "stats": [
+      {
+        "label": "Years Experience",
+        "value": "20+"
+      },
+      {
+        "label": "Projects Delivered",
+        "value": "150+"
+      },
+      {
+        "label": "User Impact",
+        "value": "50M+"
+      },
+      {
+        "label": "Client Satisfaction",
+        "value": "98%"
+      }
+    ],
+    "capabilities": [
+      {
+        "icon": "Palette",
+        "title": "UX/UI Design",
+        "description": "Research, IA, Wireframes, Prototypes, Design Systems"
+      },
+      {
+        "icon": "Code",
+        "title": "Frontend Development",
+        "description": "React, Angular, Next.js, TypeScript, Performance"
+      },
+      {
+        "icon": "Briefcase",
+        "title": "Product Strategy",
+        "description": "Discovery, Roadmapping, Stakeholder Alignment"
+      }
+    ],
+    "trustBar": {
+      "title": "Trusted by leading organizations",
+      "clients": ["SATH", "FinServ", "HealthCo", "TravelTech", "EdLearn"]
+    }
+  },
+  "about": {
+    "title": "About Me",
+    "introduction": [
+      "I'm Rajesh Kumar, a UI/UX Product Designer and UI Developer with over 20 years of experience crafting digital experiences that users love and businesses value. I bridge the gap between design strategy and production-grade code, ensuring products are not just beautiful, but performant, accessible, and engineered to scale.",
+      "My unique dual expertise in design and frontend development allows me to think holistically about problems. I understand the constraints and possibilities of implementation, which informs smarter, more feasible design decisions. I've worked across enterprise SaaS, fintech, healthcare, e-commerce, and consumer products, always focused on measurable outcomes.",
+      "I specialize in complex, data-dense interfaces where clarity and usability are critical. Whether it's building design systems that unify product teams, architecting information hierarchies for enterprise platforms, or optimizing mobile experiences for millions of users, I bring systematic thinking and craft to every project."
+    ],
+    "principlesTitle": "Design Principles",
+    "principles": [
+      {
+        "icon": "Users",
+        "title": "Users First, Always",
+        "description": "Every design decision starts with deep user understanding. I validate assumptions through research and testing, never guesswork."
+      },
+      {
+        "icon": "Zap",
+        "title": "Systems Over Screens",
+        "description": "I design scalable systems, not just interfaces. Components, patterns, and principles that grow with your product and team."
+      },
+      {
+        "icon": "Target",
+        "title": "Outcomes Over Output",
+        "description": "Beautiful interfaces are table stakes. I measure success through user outcomes, business KPIs, and measurable impact."
+      },
+      {
+        "icon": "Code",
+        "title": "Design for Engineering",
+        "description": "My code background informs every design. I create feasible, performant solutions that engineers love to build."
+      },
+      {
+        "icon": "BookOpen",
+        "title": "Continuous Learning",
+        "description": "Technology evolves rapidly. I stay current with emerging patterns, tools, and best practices to deliver modern solutions."
+      }
+    ],
+    "skillsTitle": "Skills & Expertise",
+    "timelineTitle": "Career Timeline"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "description": "A selection of projects spanning enterprise applications, consumer products, design systems, and brand campaigns.",
+    "filterLabel": "Filter by:",
+    "categoryLabel": "Category",
+    "technologyLabel": "Technology",
+    "searchPlaceholder": "Search projects by title, description, or tags...",
+    "showingLabel": "Showing",
+    "ofLabel": "of",
+    "projectsLabel": "projects",
+    "clearFiltersLabel": "Clear all filters",
+    "nothingFoundTitle": "No projects match your filters",
+    "nothingFoundAction": "Clear all filters",
+    "viewCaseStudyLabel": "View Full Case Study",
+    "viewPrototypeLabel": "View Prototype",
+    "featuredBadge": "Featured"
+  },
+  "contact": {
+    "title": "Let's Work Together",
+    "description": "Available for freelance projects, consulting, and full-time opportunities. Let's discuss how I can help bring your vision to life.",
+    "formTitle": "Send a Message",
+    "formDescription": "I typically respond within 24 hours on business days.",
+    "quickActionsTitle": "Quick Actions",
+    "socialTitle": "Connect on Social",
+    "availabilityTitle": "Current Availability",
+    "availabilityStatus": "Available for work",
+    "availabilityMessage": "Open to new opportunities starting Q1 2025. Currently accepting freelance projects with flexible timelines.",
+    "ctaTitle": "Ready to Transform Your Product?",
+    "ctaDescription": "Whether you're a startup looking to build your MVP or an enterprise modernizing your platform, I bring the strategic thinking and technical expertise to make it happen.",
+    "bookCallLabel": "Book a 20-Minute Call",
+    "downloadResumeLabel": "Download Resume",
+    "viewPortfolioLabel": "View Full Portfolio",
+    "bookCallSubtext": "Free consultation",
+    "resumeSubtext": "PDF, 245KB",
+    "portfolioSubtext": "12 projects"
+  },
+  "labels": {
+    "common": {
+      "loading": "Loading...",
+      "error": "Something went wrong",
+      "tryAgain": "Try again",
+      "learnMore": "Learn more",
+      "readMore": "Read more",
+      "viewAll": "View all",
+      "close": "Close",
+      "back": "Back"
+    },
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "portfolio": "Portfolio",
+      "caseStudy": "Case Study",
+      "contact": "Contact",
+      "skipToContent": "Skip to main content"
+    },
+    "form": {
+      "nameLabel": "Your Name",
+      "namePlaceholder": "John Doe",
+      "emailLabel": "Email Address",
+      "emailPlaceholder": "john@company.com",
+      "companyLabel": "Company",
+      "companyPlaceholder": "Your Company Name",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Tell me about your project or opportunity...",
+      "required": "Required field",
+      "invalidEmail": "Invalid email address",
+      "submitButton": "Send Message",
+      "submittingButton": "Sending...",
+      "successButton": "Message Sent Successfully!",
+      "privacyNotice": "By submitting this form, you agree to our privacy policy and consent to be contacted regarding your inquiry."
+    },
+    "buttons": {
+      "bookCall": "Book a Call",
+      "downloadResume": "Download Resume",
+      "viewWork": "View My Work",
+      "getInTouch": "Get in Touch",
+      "viewCaseStudy": "View Case Study",
+      "viewPrototype": "View Prototype",
+      "backToPortfolio": "Back to Portfolio",
+      "scheduleCall": "Schedule a Call"
+    }
+  },
+  "metadata": {
+    "home": {
+      "title": "Rajesh Kumar - UI/UX Product Designer & UI Developer",
+      "description": "UI/UX Product Designer and UI Developer with 20+ years of experience. Specializing in enterprise applications, design systems, and frontend development with React, Angular, and Next.js.",
+      "keywords": ["UX Designer", "UI Developer", "Product Designer", "Frontend Developer", "Design Systems", "React", "Angular", "Portfolio"]
+    },
+    "about": {
+      "title": "About | Rajesh Kumar",
+      "description": "Learn about my 20+ year journey in UI/UX design and frontend development. From early web development to leading enterprise design systems.",
+      "keywords": ["About", "Experience", "Skills", "Career", "Designer Bio"]
+    },
+    "portfolio": {
+      "title": "Portfolio | Rajesh Kumar",
+      "description": "Explore 12+ projects across enterprise apps, consumer products, design systems, and campaigns. Each with measurable outcomes and real impact.",
+      "keywords": ["Portfolio", "Projects", "Case Studies", "Design Work", "Development Work"]
+    },
+    "caseStudy": {
+      "title": "Case Study | Rajesh Kumar",
+      "description": "Deep dive into the SATH incident management platform redesign. See the full design process from research to measurable results.",
+      "keywords": ["Case Study", "STAR Methodology", "UX Process", "Design Thinking", "Results"]
+    },
+    "contact": {
+      "title": "Contact | Rajesh Kumar",
+      "description": "Get in touch to discuss your project. Available for freelance, consulting, and full-time opportunities.",
+      "keywords": ["Contact", "Hire Designer", "Freelance", "Consulting", "Get in Touch"]
+    }
+  }
+}

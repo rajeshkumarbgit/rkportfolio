@@ -1,0 +1,99 @@
+{
+  "caseStudies": [
+    {
+      "slug": "sath-notification-system",
+      "title": "Enterprise Incident Management Platform",
+      "hero": {
+        "image": "case-study-hero",
+        "tagline": "Transforming enterprise incident response through intelligent automation and intuitive design",
+        "metrics": [
+          { "label": "Resolution Time", "value": "↓35%" },
+          { "label": "User Satisfaction", "value": "92%" },
+          { "label": "Rule Accuracy", "value": "↑14%" },
+          { "label": "Daily Alerts Processed", "value": "10M+" }
+        ]
+      },
+      "metadata": {
+        "role": ["Lead UX Designer", "Senior Frontend Developer"],
+        "timeline": "January 2024 - August 2024 (8 months)",
+        "team": "2 Designers, 6 Engineers, 1 Product Manager",
+        "platform": ["Web Application", "Mobile Responsive"],
+        "tools": ["Figma", "Angular", "NgRx", "RxJS", "TypeScript", "Jest", "Cypress"]
+      },
+      "sections": {
+        "problem": "The existing SATH notification system was struggling to handle the exponential growth in incident alerts. Users spent 40+ minutes configuring complex notification rules, and the rigid interface led to frequent misconfigurations causing alert fatigue. The technical debt from a 5-year-old codebase made it impossible to scale features without breaking existing functionality.\n\nKey pain points included: overwhelming cognitive load from poorly structured rule builder, lack of real-time validation causing configuration errors discovered only after deployment, no visibility into rule effectiveness or alert patterns, and 47% of support tickets related to notification misconfiguration.",
+        "research": {
+          "methods": [
+            "In-depth interviews with 24 DevOps engineers and site reliability engineers",
+            "Contextual inquiry observing live incident response across 6 organizations",
+            "Competitive analysis of 8 incident management platforms",
+            "Analytics deep-dive: 6 months of usage data, error patterns, and support tickets",
+            "Heuristic evaluation of existing system identifying 32 critical usability issues"
+          ],
+          "insights": [
+            "Users think in \"scenarios\" not individual rules - they need templates for common patterns",
+            "80% of rules followed 3 standard patterns but system forced building from scratch",
+            "Real-time feedback was critical - users wanted to test rules before going live",
+            "Visual representation of rule logic reduced cognitive load by 60% in testing",
+            "Mobile access was essential for 35% of users responding to incidents outside office"
+          ]
+        },
+        "solution": {
+          "approach": "We redesigned the system around three core principles: Progressive Disclosure (showing complexity only when needed), Intelligent Defaults (starting with smart templates), and Continuous Feedback (real-time validation at every step).\n\nThe new architecture separated concerns: a visual rule builder for non-technical users, an advanced editor for power users, and a unified testing environment. We implemented a component-based design system enabling consistent patterns across 50+ screens while maintaining flexibility for edge cases.",
+          "keyFeatures": [
+            "Visual Rule Builder with drag-and-drop logic blocks and natural language summaries",
+            "Smart Templates library with 15 pre-configured patterns covering 85% of use cases",
+            "Real-time Rule Testing allowing users to simulate scenarios before deployment",
+            "Intelligent Suggestions using ML to recommend optimal configurations based on patterns",
+            "Unified Dashboard providing analytics on rule effectiveness and alert patterns",
+            "Mobile-responsive interface for on-the-go incident management",
+            "Comprehensive Activity Log with rollback capabilities for compliance"
+          ]
+        },
+        "design": {
+          "wireframes": "Created low-fidelity wireframes for 15 core screens, iterating through 4 major versions based on user testing. Validated information architecture through card sorting with 18 users. High-fidelity prototypes built in Figma with complete interaction flows.",
+          "system": "Built comprehensive design system with 45 reusable components, 8-point grid system, accessible color palette (WCAG 2.2 AA), typography scale, and documented interaction patterns. Established governance process ensuring consistency across team."
+        },
+        "results": {
+          "metrics": [
+            {
+              "label": "35% Faster Resolution",
+              "value": "Avg incident resolution dropped from 42min to 27min",
+              "context": "Measured across 10,000+ incidents over 3-month period post-launch"
+            },
+            {
+              "label": "92% Satisfaction",
+              "value": "Up from 61% pre-redesign",
+              "context": "Based on quarterly user survey (n=147) and NPS increase from 28 to 67"
+            },
+            {
+              "label": "14% Rule Accuracy",
+              "value": "Misconfiguration rate dropped from 23% to 9%",
+              "context": "Tracking first-time-right configurations and required support interventions"
+            },
+            {
+              "label": "78% Adoption",
+              "value": "Of new visual rule builder vs. legacy editor",
+              "context": "Within 60 days of launch, indicating strong product-market fit"
+            }
+          ],
+          "testimonial": {
+            "quote": "The new notification system has transformed how our team responds to incidents. What used to take 30+ minutes of configuration now takes under 5 minutes. The visual rule builder is intuitive, and the real-time testing gives us confidence we won't miss critical alerts.",
+            "author": "Sarah Chen",
+            "role": "Senior SRE",
+            "company": "Fortune 500 Financial Services Company"
+          }
+        },
+        "learnings": [
+          "Progressive disclosure works: hiding advanced features initially increased successful first-time configurations by 42%",
+          "Visual representation matters: users understood complex logic 3x faster with visual blocks vs. text-based rules",
+          "Templates accelerate adoption: 68% of users started with templates vs. building from scratch",
+          "Real-time validation prevents errors: inline feedback reduced configuration errors by 61%",
+          "Mobile-responsive design was table stakes: 35% of incident responses initiated from mobile devices",
+          "Strong component architecture pays dividends: reusable components reduced development time by 40% for new features",
+          "Accessibility creates better UX for everyone: keyboard shortcuts and clear focus states improved efficiency for all users"
+        ]
+      }
+    }
+  ]
+}

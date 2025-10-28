@@ -1,0 +1,184 @@
+{
+  "images": [
+    {
+      "id": "hero-bg-1",
+      "url": "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "alt": "Modern workspace with design tools and laptop",
+      "attribution": {
+        "author": "ThisIsEngineering",
+        "source": "pexels",
+        "url": "https://www.pexels.com/photo/3861969/"
+      },
+      "category": "hero",
+      "tags": ["workspace", "design", "technology"]
+    },
+    {
+      "id": "project-cover-1",
+      "url": "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "alt": "Enterprise dashboard interface design",
+      "attribution": {
+        "author": "ThisIsEngineering",
+        "source": "pexels",
+        "url": "https://www.pexels.com/photo/3861969/"
+      },
+      "category": "project-cover",
+      "tags": ["enterprise", "dashboard", "ui-design"]
+    },
+    {
+      "id": "project-cover-2",
+      "url": "https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "alt": "Mobile banking application interface",
+      "attribution": {
+        "author": "Tima Miroshnichenko",
+        "source": "pexels",
+        "url": "https://www.pexels.com/photo/6801648/"
+      },
+      "category": "project-cover",
+      "tags": ["mobile", "fintech", "app-design"]
+    },
+    {
+      "id": "project-cover-3",
+      "url": "https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "alt": "Healthcare patient portal design",
+      "attribution": {
+        "author": "Gustavo Fring",
+        "source": "pexels",
+        "url": "https://www.pexels.com/photo/4386466/"
+      },
+      "category": "project-cover",
+      "tags": ["healthcare", "portal", "accessibility"]
+    },
+    {
+      "id": "project-cover-4",
+      "url": "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "alt": "E-commerce design system components",
+      "attribution": {
+        "author": "Christina Morillo",
+        "source": "pexels",
+        "url": "https://www.pexels.com/photo/1181244/"
+      },
+      "category": "project-cover",
+      "tags": ["e-commerce", "design-system", "components"]
+    },
+    {
+      "id": "project-cover-5",
+      "url": "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "alt": "Data analytics dashboard visualization",
+      "attribution": {
+        "author": "Lukas",
+        "source": "pexels",
+        "url": "https://www.pexels.com/photo/590022/"
+      },
+      "category": "project-cover",
+      "tags": ["analytics", "data-viz", "dashboard"]
+    },
+    {
+      "id": "project-cover-6",
+      "url": "https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "alt": "Luxury brand campaign creative",
+      "attribution": {
+        "author": "Chloe",
+        "source": "pexels",
+        "url": "https://www.pexels.com/photo/1926769/"
+      },
+      "category": "project-cover",
+      "tags": ["branding", "luxury", "campaign"]
+    },
+    {
+      "id": "project-cover-7",
+      "url": "https://images.pexels.com/photos/5905857/pexels-photo-5905857.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "alt": "Online learning platform interface",
+      "attribution": {
+        "author": "Julia M Cameron",
+        "source": "pexels",
+        "url": "https://www.pexels.com/photo/5905857/"
+      },
+      "category": "project-cover",
+      "tags": ["education", "learning", "platform"]
+    },
+    {
+      "id": "project-cover-8",
+      "url": "https://images.pexels.com/photos/3214995/pexels-photo-3214995.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "alt": "Travel booking platform interface",
+      "attribution": {
+        "author": "Andrea Piacquadio",
+        "source": "pexels",
+        "url": "https://www.pexels.com/photo/3214995/"
+      },
+      "category": "project-cover",
+      "tags": ["travel", "booking", "ai"]
+    },
+    {
+      "id": "project-cover-9",
+      "url": "https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "alt": "Nonprofit donation platform design",
+      "attribution": {
+        "author": "RODNAE Productions",
+        "source": "pexels",
+        "url": "https://www.pexels.com/photo/6646918/"
+      },
+      "category": "project-cover",
+      "tags": ["nonprofit", "donation", "social-impact"]
+    },
+    {
+      "id": "project-cover-10",
+      "url": "https://images.pexels.com/photos/4393426/pexels-photo-4393426.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "alt": "Food delivery mobile app",
+      "attribution": {
+        "author": "Norma Mortenson",
+        "source": "pexels",
+        "url": "https://www.pexels.com/photo/4393426/"
+      },
+      "category": "project-cover",
+      "tags": ["food-delivery", "mobile", "real-time"]
+    },
+    {
+      "id": "project-cover-11",
+      "url": "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "alt": "B2B CRM platform interface",
+      "attribution": {
+        "author": "Fauxels",
+        "source": "pexels",
+        "url": "https://www.pexels.com/photo/3184465/"
+      },
+      "category": "project-cover",
+      "tags": ["crm", "b2b", "enterprise"]
+    },
+    {
+      "id": "project-cover-12",
+      "url": "https://images.pexels.com/photos/4720774/pexels-photo-4720774.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "alt": "Fitness and wellness app design",
+      "attribution": {
+        "author": "Karolina Grabowska",
+        "source": "pexels",
+        "url": "https://www.pexels.com/photo/4720774/"
+      },
+      "category": "project-cover",
+      "tags": ["fitness", "wellness", "health-tracker"]
+    },
+    {
+      "id": "case-study-hero",
+      "url": "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "alt": "SATH incident management platform interface",
+      "attribution": {
+        "author": "ThisIsEngineering",
+        "source": "pexels",
+        "url": "https://www.pexels.com/photo/3861969/"
+      },
+      "category": "case-study",
+      "tags": ["enterprise", "incident-management", "dashboard"]
+    },
+    {
+      "id": "about-hero",
+      "url": "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "alt": "Professional workspace with design tools",
+      "attribution": {
+        "author": "ThisIsEngineering",
+        "source": "pexels",
+        "url": "https://www.pexels.com/photo/3861969/"
+      },
+      "category": "about",
+      "tags": ["workspace", "professional", "design"]
+    }
+  ]
+}
