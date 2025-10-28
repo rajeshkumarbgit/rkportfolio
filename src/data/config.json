@@ -45,7 +45,7 @@
     { "id": "home", "label": "Home", "href": "/" },
     { "id": "about", "label": "About", "href": "/about" },
     { "id": "portfolio", "label": "Portfolio", "href": "/portfolio" },
-    { "id": "case-study", "label": "Case Study", "href": "/case-study" },
+    { "id": "case-studies", "label": "Case Studies", "href": "/case-studies" },
     { "id": "contact", "label": "Contact", "href": "/contact" }
   ],
   "theme": {

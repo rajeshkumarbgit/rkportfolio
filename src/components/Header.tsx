@@ -5,7 +5,7 @@ import { useLabels } from '../hooks/useContent';
 
 interface HeaderProps {
   currentPage: string;
-  onNavigate: (page: string) => void;
+  onNavigate: (page: string, slug?: string) => void;
 }
 
 export default function Header({ currentPage, onNavigate }: HeaderProps) {

@@ -9,7 +9,7 @@ import { useContactContent } from '../hooks/useContent';
 import { useContactInfo } from '../hooks/useConfig';
 
 interface ContactProps {
-  onNavigate: (page: string) => void;
+  onNavigate: (page: string, slug?: string) => void;
 }
 
 export default function Contact({ onNavigate }: ContactProps) {

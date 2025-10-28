@@ -1,17 +1,44 @@
-import { ArrowLeft, Target, Lightbulb, Palette, TrendingUp, BookOpen, ExternalLink } from 'lucide-react';
-import { useCaseStudy } from '../hooks/useProjects';
+import { ArrowLeft, ChevronLeft, ChevronRight, Target, Lightbulb, Palette, TrendingUp, BookOpen, ExternalLink } from 'lucide-react';
+import { useAllCaseStudies } from '../hooks/useProjects';
 import { useImageUrl } from '../hooks/useImages';
 
-interface CaseStudyProps {
+interface CaseStudyDetailProps {
+  caseStudySlug: string;
   onNavigate: (page: string, slug?: string) => void;
 }
 
-export default function CaseStudy({ onNavigate }: CaseStudyProps) {
-  const caseStudy = useCaseStudy('sath-notification-system');
+export default function CaseStudyDetail({ caseStudySlug, onNavigate }: CaseStudyDetailProps) {
+  const allCaseStudies = useAllCaseStudies();
+  const currentIndex = allCaseStudies.findIndex(cs => cs.slug === caseStudySlug);
+  const caseStudy = allCaseStudies[currentIndex];
 
-  if (!caseStudy) return <div className="py-16 px-4 text-center">Case study not found</div>;
+  if (!caseStudy) {
+    return (
+      <div className="min-h-screen flex items-center justify-center pt-20">
+        <div className="text-center">
+          <p className="text-xl text-gray-600 mb-4">Case study not found</p>
+          <button
+            onClick={() => onNavigate('case-studies')}
+            className="text-gray-900 underline"
+          >
+            Back to Case Studies
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   const heroImageUrl = useImageUrl(caseStudy.hero.image);
+
+  const handlePrevCaseStudy = () => {
+    const prevIndex = currentIndex === 0 ? allCaseStudies.length - 1 : currentIndex - 1;
+    onNavigate('case-study-detail', allCaseStudies[prevIndex].slug);
+  };
+
+  const handleNextCaseStudy = () => {
+    const nextIndex = currentIndex === allCaseStudies.length - 1 ? 0 : currentIndex + 1;
+    onNavigate('case-study-detail', allCaseStudies[nextIndex].slug);
+  };
 
   return (
     <article className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-white pt-20">
@@ -27,11 +54,11 @@ export default function CaseStudy({ onNavigate }: CaseStudyProps) {
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <button
-            onClick={() => onNavigate('portfolio')}
+            onClick={() => onNavigate('case-studies')}
             className="inline-flex items-center text-white/80 hover:text-white mb-8 focus:outline-none focus:ring-2 focus:ring-white/50 rounded-lg px-4 py-2 transition-all"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Portfolio
+            Back to Case Studies
           </button>
 
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 animate-slide-up">
@@ -232,7 +259,35 @@ export default function CaseStudy({ onNavigate }: CaseStudyProps) {
           </section>
         </div>
 
-        <div className="mt-24 p-12 bg-gradient-to-br from-blue-600 to-blue-500 rounded-3xl text-white text-center">
+        <div className="flex items-center justify-between py-12 mt-12 border-t-2 border-gray-200">
+          <button
+            onClick={handlePrevCaseStudy}
+            className="group flex items-center gap-3 px-6 py-4 bg-gray-50 hover:bg-gray-100 rounded-2xl transition-all focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
+          >
+            <ChevronLeft className="w-5 h-5 text-gray-600 group-hover:text-gray-900" />
+            <div className="text-left">
+              <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Previous</div>
+              <div className="text-sm font-bold text-gray-900">
+                {allCaseStudies[currentIndex === 0 ? allCaseStudies.length - 1 : currentIndex - 1]?.title}
+              </div>
+            </div>
+          </button>
+
+          <button
+            onClick={handleNextCaseStudy}
+            className="group flex items-center gap-3 px-6 py-4 bg-gray-50 hover:bg-gray-100 rounded-2xl transition-all focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
+          >
+            <div className="text-right">
+              <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Next</div>
+              <div className="text-sm font-bold text-gray-900">
+                {allCaseStudies[currentIndex === allCaseStudies.length - 1 ? 0 : currentIndex + 1]?.title}
+              </div>
+            </div>
+            <ChevronRight className="w-5 h-5 text-gray-600 group-hover:text-gray-900" />
+          </button>
+        </div>
+
+        <div className="mt-12 p-12 bg-gradient-to-br from-blue-600 to-blue-500 rounded-3xl text-white text-center">
           <h3 className="text-3xl font-bold mb-4">Want results like this?</h3>
           <p className="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
             Let's discuss how I can help transform your product with strategic design and technical expertise.

@@ -7,7 +7,7 @@ import { Mail, Phone, MapPin, Linkedin, Github, Twitter } from 'lucide-react';
 import { useNavigation, useSocialLinks, useContactInfo } from '../hooks/useConfig';
 
 interface FooterProps {
-  onNavigate: (page: string) => void;
+  onNavigate: (page: string, slug?: string) => void;
 }
 
 const iconMap: Record<string, any> = {

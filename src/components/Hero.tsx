@@ -2,7 +2,7 @@ import { ArrowRight, Sparkles } from 'lucide-react';
 import { useHeroContent } from '../hooks/useContent';
 
 interface HeroProps {
-  onNavigate: (page: string) => void;
+  onNavigate: (page: string, slug?: string) => void;
 }
 
 export default function Hero({ onNavigate }: HeroProps) {
@@ -23,9 +23,9 @@ export default function Hero({ onNavigate }: HeroProps) {
           </div>
 
           <h1 className="text-5xl sm:text-6xl lg:text-[5.5rem] font-bold text-gray-900 leading-[1.1] tracking-tight animate-slide-up" style={{ animationDelay: '0.1s' }}>
-            <span className="block mb-3">{content.tagline.split('.')[0]}.</span>
+            <span className="block mb-3">Designing Systems.</span>
             <span className="block bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">
-              {content.tagline.split('.')[1]}.
+              Shipping Experiences.
             </span>
           </h1>
 

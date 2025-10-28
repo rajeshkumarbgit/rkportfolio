@@ -10,8 +10,8 @@
         "variant": "primary"
       },
       {
-        "label": "Case Study",
-        "action": "case-study",
+        "label": "Case Studies",
+        "action": "case-studies",
         "variant": "secondary"
       },
       {
