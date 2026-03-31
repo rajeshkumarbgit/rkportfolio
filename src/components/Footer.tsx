@@ -3,7 +3,7 @@
  * References: REQ-03 (Footer)
  */
 
-import { Mail, Phone, MapPin, Linkedin, Github, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Github, Twitter, Briefcase } from 'lucide-react';
 import { useNavigation, useSocialLinks, useContactInfo } from '../hooks/useConfig';
 
 interface FooterProps {
@@ -13,7 +13,10 @@ interface FooterProps {
 const iconMap: Record<string, any> = {
   Linkedin,
   Github,
-  Twitter
+  Twitter,
+  Dribbble: Github,
+  Briefcase,
+  Behance: Briefcase
 };
 
 export default function Footer({ onNavigate }: FooterProps) {
@@ -108,12 +111,26 @@ export default function Footer({ onNavigate }: FooterProps) {
               © {currentYear} Rajesh Kumar. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm text-gray-400">
-              <a href="#privacy" className="hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900 rounded">
+              <button
+                type="button"
+                onClick={() => {
+                  onNavigate('contact');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className="hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900 rounded cursor-pointer"
+              >
                 Privacy Policy
-              </a>
-              <a href="#terms" className="hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900 rounded">
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  onNavigate('contact');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className="hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900 rounded cursor-pointer"
+              >
                 Terms of Service
-              </a>
+              </button>
             </div>
           </div>
         </div>

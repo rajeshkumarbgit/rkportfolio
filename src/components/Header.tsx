@@ -77,14 +77,15 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
             ))}
 
             <div className="ml-4 flex items-center space-x-3 pl-4 border-l border-gray-200">
-              <a
-                href="#download-resume"
-                className="inline-flex items-center px-4 py-2.5 text-sm font-semibold text-gray-700 hover:text-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-xl"
+              <button
+                type="button"
+                onClick={() => handleNavClick('contact')}
+                className="inline-flex items-center px-4 py-2.5 text-sm font-semibold text-gray-700 hover:text-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-xl cursor-pointer"
                 aria-label="Download resume"
               >
                 <Download className="w-4 h-4 mr-2" />
                 Resume
-              </a>
+              </button>
               <a
                 href={`mailto:${email}`}
                 className="inline-flex items-center px-5 py-2.5 bg-gradient-to-r from-blue-600 to-blue-500 text-white text-sm font-semibold rounded-xl hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
@@ -127,13 +128,14 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
               ))}
 
               <div className="pt-4 flex flex-col space-y-2 border-t border-gray-100 mt-2">
-                <a
-                  href="#download-resume"
-                  className="inline-flex items-center px-5 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100 rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                <button
+                  type="button"
+                  onClick={() => handleNavClick('contact')}
+                  className="inline-flex items-center px-5 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100 rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer"
                 >
                   <Download className="w-4 h-4 mr-2" />
                   Download Resume
-                </a>
+                </button>
                 <a
                   href={`mailto:${email}`}
                   className="inline-flex items-center px-5 py-3 bg-gradient-to-r from-blue-600 to-blue-500 text-white text-sm font-semibold rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"

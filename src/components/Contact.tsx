@@ -105,16 +105,17 @@ export default function Contact({ onNavigate }: ContactProps) {
                   <span className="text-sm text-gray-300 group-hover:text-white">{content.bookCallSubtext}</span>
                 </a>
 
-                <a
-                  href="#download-resume"
-                  className="group flex items-center justify-between p-4 bg-white border-2 border-gray-200 rounded-lg hover:border-gray-900 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
+                <button
+                  type="button"
+                  onClick={() => onNavigate('portfolio')}
+                  className="group flex items-center justify-between p-4 bg-white border-2 border-gray-200 rounded-lg hover:border-gray-900 transition-colors w-full text-left focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 cursor-pointer"
                 >
                   <span className="flex items-center gap-3 text-gray-900">
                     <Download className="w-5 h-5" />
                     <span className="font-medium">{content.downloadResumeLabel}</span>
                   </span>
                   <span className="text-sm text-gray-600">{content.resumeSubtext}</span>
-                </a>
+                </button>
 
                 <button
                   type="button"
