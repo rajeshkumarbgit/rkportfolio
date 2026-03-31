@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { ArrowLeft, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { X, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
 import { useAllProjects } from '../hooks/useProjects';
 import { useImageUrl } from '../hooks/useImages';
 
@@ -14,16 +14,28 @@ export default function PortfolioDetail({ projectSlug, onNavigate }: PortfolioDe
   const project = allProjects[currentIndex];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!isFullscreen) return;
+      if (e.key === 'Escape') handleClose();
+      if (e.key === 'ArrowLeft') handlePrevImage();
+      if (e.key === 'ArrowRight') handleNextImage();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isFullscreen, currentImageIndex]);
 
   if (!project) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center bg-white">
         <div className="text-center">
-          <p className="text-xl text-gray-600 mb-4">Project not found</p>
+          <p className="text-xl text-gray-600 mb-6">Project not found</p>
           <button
             type="button"
             onClick={() => onNavigate('portfolio')}
-            className="text-gray-900 underline cursor-pointer"
+            className="inline-flex items-center px-6 py-3 bg-gray-900 text-white font-semibold rounded-xl hover:bg-gray-800 transition-colors cursor-pointer"
           >
             Back to Portfolio
           </button>
@@ -37,11 +49,13 @@ export default function PortfolioDetail({ projectSlug, onNavigate }: PortfolioDe
 
   const handlePrevProject = () => {
     const prevIndex = currentIndex === 0 ? allProjects.length - 1 : currentIndex - 1;
+    setCurrentImageIndex(0);
     onNavigate('portfolio-detail', allProjects[prevIndex].slug);
   };
 
   const handleNextProject = () => {
     const nextIndex = currentIndex === allProjects.length - 1 ? 0 : currentIndex + 1;
+    setCurrentImageIndex(0);
     onNavigate('portfolio-detail', allProjects[nextIndex].slug);
   };
 
@@ -53,76 +67,80 @@ export default function PortfolioDetail({ projectSlug, onNavigate }: PortfolioDe
     setCurrentImageIndex(prev => prev === images.length - 1 ? 0 : prev + 1);
   };
 
+  const handleClose = () => {
+    onNavigate('portfolio');
+  };
+
   return (
-    <article className="min-h-screen bg-white pt-20">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16">
+    <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-black pt-20 pb-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <button
           type="button"
-          onClick={() => onNavigate('portfolio')}
-          className="inline-flex items-center text-gray-600 hover:text-gray-900 mb-12 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 rounded-lg px-4 py-2 transition-all cursor-pointer"
+          onClick={handleClose}
+          className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-md transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900 cursor-pointer mb-8"
+          aria-label="Close portfolio detail"
         >
-          <ArrowLeft className="w-5 h-5 mr-2" />
-          Back to Portfolio
+          <X className="w-6 h-6" />
         </button>
 
-        <div className="grid lg:grid-cols-2 gap-16 mb-20">
-          <div>
-            <div className="mb-8">
+        <div className="grid lg:grid-cols-2 gap-12 mb-16">
+          <div className="space-y-8">
+            <div className="space-y-4">
               {project.featured && (
-                <span className="inline-block px-4 py-2 bg-gray-900 text-white text-xs font-semibold rounded-full mb-4">
-                  Featured Project
-                </span>
+                <div className="inline-block px-4 py-2 bg-white/10 backdrop-blur-md text-white text-xs font-semibold rounded-full border border-white/20">
+                  ✨ Featured Project
+                </div>
               )}
-              <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
+              <h1 className="text-5xl sm:text-6xl font-bold text-white tracking-tight leading-tight">
                 {project.title}
               </h1>
-              <p className="text-xl text-gray-600 leading-relaxed mb-8">
+              <p className="text-lg text-gray-300 leading-relaxed max-w-lg">
                 {project.summary}
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-8 mb-12">
-              <div>
-                <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">Industry</h3>
-                <p className="text-lg text-gray-900 font-medium">{project.industry}</p>
+            <div className="grid grid-cols-2 gap-6">
+              <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+                <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">Industry</p>
+                <p className="text-lg font-semibold text-white">{project.industry}</p>
               </div>
-              <div>
-                <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">Timeline</h3>
-                <p className="text-lg text-gray-900 font-medium">{project.timeline}</p>
+              <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+                <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">Timeline</p>
+                <p className="text-lg font-semibold text-white">{project.timeline}</p>
               </div>
-              <div>
-                <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">Platform</h3>
-                <p className="text-lg text-gray-900 font-medium">{project.platform.join(', ')}</p>
+              <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+                <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">Platform</p>
+                <p className="text-sm font-semibold text-white">{project.platform.join(', ')}</p>
               </div>
-              <div>
-                <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">Role</h3>
-                <p className="text-lg text-gray-900 font-medium">{project.role.join(', ')}</p>
+              <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+                <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">Role</p>
+                <p className="text-sm font-semibold text-white">{project.role.join(', ')}</p>
               </div>
             </div>
 
             {project.kpis.length > 0 && (
-              <div className="mb-12">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Key Results</h3>
-                <div className="space-y-4">
+              <div className="space-y-4">
+                <h3 className="text-xl font-bold text-white">Key Results</h3>
+                <div className="space-y-3">
                   {project.kpis.map((kpi, idx) => (
-                    <div key={idx} className="flex items-start gap-3 p-5 bg-gray-50 rounded-2xl">
-                      <div className="w-6 h-6 rounded-full bg-gray-900 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <span className="text-xs font-bold text-white">{idx + 1}</span>
+                    <div key={idx} className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+                      <div className="w-6 h-6 rounded-full bg-blue-500/20 border border-blue-500/50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span className="text-xs font-bold text-blue-300">{idx + 1}</span>
                       </div>
-                      <p className="text-base text-gray-700">{kpi}</p>
+                      <p className="text-sm text-gray-200">{kpi}</p>
                     </div>
                   ))}
                 </div>
               </div>
             )}
 
-            <div className="mb-12">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Technologies Used</h3>
-              <div className="flex flex-wrap gap-3">
+            <div className="space-y-4">
+              <h3 className="text-xl font-bold text-white">Technologies</h3>
+              <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag, idx) => (
                   <span
                     key={idx}
-                    className="px-5 py-3 bg-white border-2 border-gray-200 text-gray-900 text-sm font-semibold rounded-2xl hover:border-gray-900 transition-colors"
+                    className="px-4 py-2 bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-semibold rounded-full hover:bg-white/20 transition-colors"
                   >
                     {tag}
                   </span>
@@ -131,16 +149,16 @@ export default function PortfolioDetail({ projectSlug, onNavigate }: PortfolioDe
             </div>
 
             {(project.liveUrl || project.prototype) && (
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-3 pt-4">
                 {project.liveUrl && (
                   <a
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center px-8 py-4 bg-gray-900 text-white font-semibold rounded-2xl hover:bg-gray-800 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
+                    className="inline-flex items-center px-6 py-3 bg-white text-gray-900 font-semibold rounded-xl hover:bg-gray-100 hover:shadow-lg hover:shadow-white/20 hover:-translate-y-1 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900"
                   >
-                    View Live Project
-                    <ExternalLink className="ml-2 w-5 h-5" />
+                    Live Project
+                    <ExternalLink className="ml-2 w-4 h-4" />
                   </a>
                 )}
                 {project.prototype && (
@@ -148,74 +166,98 @@ export default function PortfolioDetail({ projectSlug, onNavigate }: PortfolioDe
                     href={project.prototype}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center px-8 py-4 bg-white border-2 border-gray-200 text-gray-900 font-semibold rounded-2xl hover:border-gray-900 hover:shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
+                    className="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold rounded-xl hover:bg-white/20 hover:shadow-lg hover:shadow-white/20 hover:-translate-y-1 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900"
                   >
-                    View Prototype
-                    <ExternalLink className="ml-2 w-5 h-5" />
+                    Prototype
+                    <ExternalLink className="ml-2 w-4 h-4" />
                   </a>
                 )}
               </div>
             )}
           </div>
 
-          <div className="space-y-8">
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-gray-100 shadow-2xl">
+          <div className="space-y-6">
+            <div
+              className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-gray-800 shadow-2xl cursor-zoom-in group"
+              onClick={() => setIsFullscreen(true)}
+            >
               <img
                 src={currentImage}
                 alt={`${project.title} - Image ${currentImageIndex + 1}`}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
+
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
 
               {images.length > 1 && (
                 <>
                   <button
                     type="button"
-                    onClick={handlePrevImage}
-                    className="absolute left-6 top-1/2 -translate-y-1/2 p-4 bg-white/95 backdrop-blur-md hover:bg-white rounded-full shadow-xl transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 cursor-pointer"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handlePrevImage();
+                    }}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-white/20 backdrop-blur-md hover:bg-white/30 rounded-full shadow-xl transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 cursor-pointer text-white"
+                    aria-label="Previous image"
                   >
-                    <ChevronLeft className="w-5 h-5 text-gray-900" />
+                    <ChevronLeft className="w-5 h-5" />
                   </button>
 
                   <button
                     type="button"
-                    onClick={handleNextImage}
-                    className="absolute right-6 top-1/2 -translate-y-1/2 p-4 bg-white/95 backdrop-blur-md hover:bg-white rounded-full shadow-xl transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 cursor-pointer"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleNextImage();
+                    }}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-white/20 backdrop-blur-md hover:bg-white/30 rounded-full shadow-xl transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 cursor-pointer text-white"
+                    aria-label="Next image"
                   >
-                    <ChevronRight className="w-5 h-5 text-gray-900" />
+                    <ChevronRight className="w-5 h-5" />
                   </button>
 
-                  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2">
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 px-4 py-2 bg-black/40 backdrop-blur-md rounded-full">
                     {images.map((_, index) => (
                       <button
                         key={index}
                         type="button"
-                        onClick={() => setCurrentImageIndex(index)}
-                        className={`transition-all duration-500 rounded-full focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 cursor-pointer ${
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setCurrentImageIndex(index);
+                        }}
+                        className={`transition-all duration-500 rounded-full focus:outline-none focus:ring-2 focus:ring-white cursor-pointer ${
                           index === currentImageIndex
-                            ? 'w-10 h-2.5 bg-white'
-                            : 'w-2.5 h-2.5 bg-white/50 hover:bg-white/75'
+                            ? 'w-8 h-2 bg-white'
+                            : 'w-2 h-2 bg-white/40 hover:bg-white/60'
                         }`}
+                        aria-label={`Go to image ${index + 1}`}
                       />
                     ))}
                   </div>
                 </>
               )}
+
+              {images.length > 1 && (
+                <div className="absolute top-4 right-4 px-3 py-1.5 bg-black/40 backdrop-blur-md rounded-full text-white text-sm font-semibold">
+                  {currentImageIndex + 1} / {images.length}
+                </div>
+              )}
             </div>
 
             {images.length > 1 && (
-              <div className="grid grid-cols-4 gap-3">
-                {images.slice(0, 4).map((img, idx) => {
+              <div className="grid grid-cols-4 gap-2 md:grid-cols-6 lg:grid-cols-4">
+                {images.map((img, idx) => {
                   const thumbUrl = useImageUrl(img);
                   return (
                     <button
                       key={idx}
                       type="button"
                       onClick={() => setCurrentImageIndex(idx)}
-                      className={`aspect-[4/3] rounded-xl overflow-hidden border-2 transition-all cursor-pointer ${
+                      className={`aspect-[4/3] rounded-lg overflow-hidden border-2 transition-all duration-300 hover:scale-105 cursor-pointer ${
                         idx === currentImageIndex
-                          ? 'border-gray-900 scale-105'
-                          : 'border-gray-200 hover:border-gray-400'
+                          ? 'border-white ring-2 ring-white/50 scale-105'
+                          : 'border-white/20 hover:border-white/40'
                       }`}
+                      aria-label={`View image ${idx + 1}`}
                     >
                       <img
                         src={thumbUrl}
@@ -230,16 +272,17 @@ export default function PortfolioDetail({ projectSlug, onNavigate }: PortfolioDe
           </div>
         </div>
 
-        <div className="flex items-center justify-between py-12 border-t-2 border-gray-200">
+        <div className="grid grid-cols-3 gap-4 md:flex md:items-center md:justify-between py-12 border-t border-white/10">
           <button
             type="button"
             onClick={handlePrevProject}
-            className="group flex items-center gap-3 px-6 py-4 bg-gray-50 hover:bg-gray-100 rounded-2xl transition-all focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 cursor-pointer"
+            className="group md:col-span-1 col-span-1 flex flex-col md:flex-row items-center gap-2 md:gap-3 px-4 md:px-6 py-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-xl transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900 cursor-pointer"
+            aria-label="Previous project"
           >
-            <ChevronLeft className="w-5 h-5 text-gray-600 group-hover:text-gray-900" />
-            <div className="text-left">
-              <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Previous</div>
-              <div className="text-sm font-bold text-gray-900">
+            <ChevronLeft className="w-4 h-4 md:w-5 md:h-5 text-gray-400 group-hover:text-white" />
+            <div className="text-center md:text-left hidden sm:block">
+              <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Prev</div>
+              <div className="text-xs md:text-sm font-bold text-white truncate">
                 {allProjects[currentIndex === 0 ? allProjects.length - 1 : currentIndex - 1]?.title}
               </div>
             </div>
@@ -247,19 +290,30 @@ export default function PortfolioDetail({ projectSlug, onNavigate }: PortfolioDe
 
           <button
             type="button"
-            onClick={handleNextProject}
-            className="group flex items-center gap-3 px-6 py-4 bg-gray-50 hover:bg-gray-100 rounded-2xl transition-all focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 cursor-pointer"
+            onClick={handleClose}
+            className="col-span-1 inline-flex items-center justify-center px-6 py-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900 cursor-pointer text-sm md:text-base"
+            aria-label="Close portfolio"
           >
-            <div className="text-right">
+            <X className="w-4 h-4 md:hidden" />
+            <span className="hidden md:inline">Close</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={handleNextProject}
+            className="group md:col-span-1 col-span-1 flex flex-col md:flex-row items-center gap-2 md:gap-3 px-4 md:px-6 py-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-xl transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900 cursor-pointer justify-end"
+            aria-label="Next project"
+          >
+            <div className="text-center md:text-right hidden sm:block">
               <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Next</div>
-              <div className="text-sm font-bold text-gray-900">
+              <div className="text-xs md:text-sm font-bold text-white truncate">
                 {allProjects[currentIndex === allProjects.length - 1 ? 0 : currentIndex + 1]?.title}
               </div>
             </div>
-            <ChevronRight className="w-5 h-5 text-gray-600 group-hover:text-gray-900" />
+            <ChevronRight className="w-4 h-4 md:w-5 md:h-5 text-gray-400 group-hover:text-white" />
           </button>
         </div>
       </div>
-    </article>
+    </div>
   );
 }
