@@ -43,7 +43,9 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header currentPage={currentPage} onNavigate={handleNavigate} />
+      {currentPage !== 'portfolio-detail' && currentPage !== 'case-study-detail' && (
+        <Header currentPage={currentPage} onNavigate={handleNavigate} />
+      )}
 
       <main>
         {currentPage === 'home' && (
@@ -60,7 +62,9 @@ function App() {
         {currentPage === 'contact' && <Contact onNavigate={handleNavigate} />}
       </main>
 
-      <Footer onNavigate={handleNavigate} />
+      {currentPage !== 'portfolio-detail' && currentPage !== 'case-study-detail' && (
+        <Footer onNavigate={handleNavigate} />
+      )}
     </div>
   );
 }
